@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 interface Account {
-  id: string | null;
+  id: number | null;
   firstname: string | null;
   middlename: string | null;
   lastname: string | null;
