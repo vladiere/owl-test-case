@@ -29,7 +29,7 @@ export const useAccountStore = defineStore('accounts', {
   actions: {
     add_account(account: AccountCreate) {
       this.accounts.push({
-        id: Math.floor(Math.random() * 9999999) as string,
+        id: Math.floor(Math.random() * 9999999).toString(),
         ...account
       })
     },
