@@ -65,7 +65,7 @@ const router = createRouter({
   ]
 });
 
-router.beforeEach((to: unknown, from: unknown, next: unknown) => {
+router.beforeEach((to: any, from: any, next: any) => {
   const userStore = useUserStore();
   if (to.meta.auth && !userStore.is_authenticated) {
     next({ name: 'login' });
