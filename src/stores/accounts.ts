@@ -22,7 +22,7 @@ interface AccountCreate {
 
 export const useAccountStore = defineStore('accounts', {
   state: () => ({
-    accounts: [] as Accounts[],
+    accounts: [] as Account[],
   }),
   getters: {
     get_accounts: (state) => state.accounts,
