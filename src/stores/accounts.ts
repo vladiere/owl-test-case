@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 interface Account {
-  id: number | null;
+  id: string;
   firstname: string | null;
   middlename: string | null;
   lastname: string | null;
@@ -29,7 +29,7 @@ export const useAccountStore = defineStore('accounts', {
   actions: {
     add_account(account: AccountCreate) {
       this.accounts.push({
-        id: Math.floor(Math.random() * 9999999),
+        id: Math.floor(Math.random() * 9999999) as string,
         ...account
       })
     },
