@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { useUserStore } from '../stores/user.ts';
-
+import { useUserStore } from '../stores/user.ts'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,19 +32,19 @@ const router = createRouter({
               path: 'list',
               name: 'acc_list',
               meta: { auth: true },
-              component: () => import('../views/ListAccountsView.vue'),
+              component: () => import('../views/ListAccountsView.vue')
             },
             {
               path: 'register',
               name: 'acc_register',
               meta: { auth: true },
-              component: () => import('../views/RegisterView.vue'),
+              component: () => import('../views/RegisterView.vue')
             },
             {
               path: 'update',
               name: 'update_acc',
               meta: { auth: true },
-              component: () => import('../views/UpdateAccoutView.vue'),
+              component: () => import('../views/UpdateAccoutView.vue')
             }
           ]
         }
@@ -54,26 +53,26 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: () => import('../views/LoginView.vue'),
+      component: () => import('../views/LoginView.vue')
     },
     // Always leave this as last one,
     // but you can also remove it
     {
       path: '/:catchAll(.*)*',
-      component: () => import('../views/NotFound.vue'),
-    },
+      component: () => import('../views/NotFound.vue')
+    }
   ]
-});
+})
 
 router.beforeEach((to: any, from: any, next: any) => {
-  const userStore = useUserStore();
+  const userStore = useUserStore()
   if (to.meta.auth && !userStore.is_authenticated) {
-    next({ name: 'login' });
+    next({ name: 'login' })
   } else if (!to.meta.auth && userStore.is_authenticated) {
-      next('/');
+    next('/')
   } else {
-    next();
+    next()
   }
-});
+})
 
 export default router

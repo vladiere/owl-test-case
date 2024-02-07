@@ -65,15 +65,15 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue';
-  import { useRouter } from 'vue-router';
-  import { useUserStore } from '../../stores/user';
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useUserStore } from '../../stores/user'
 
-  const router = useRouter();
-  const userStore = useUserStore();
+const router = useRouter()
+const userStore = useUserStore()
 
-  const logout_user = () => {
-    userStore.logout();
-    router.push({name: 'login'});
-  }
+const logout_user = () => {
+  userStore.logout()
+  router.push({ name: 'login' })
+}
 </script>

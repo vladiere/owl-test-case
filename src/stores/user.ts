@@ -1,11 +1,11 @@
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
 
 export const useUserStore = defineStore('user', {
   state: () => ({
-    authenticated: false,
+    authenticated: false
   }),
   getters: {
-    is_authenticated: (state) => state.authenticated,
+    is_authenticated: (state) => state.authenticated
   },
   actions: {
     set_auth() {
@@ -13,7 +13,7 @@ export const useUserStore = defineStore('user', {
     },
     logout() {
       this.authenticated = false
-    },
+    }
   },
-  persist: true,
-});
+  persist: true
+})
