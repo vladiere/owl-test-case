@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-import { v4 } from 'uuid'
 
 interface Account {
   id: string | null;
@@ -30,7 +29,7 @@ export const useAccountStore = defineStore('accounts', {
   actions: {
     add_account(account: AccountCreate) {
       this.accounts.push({
-        id: v4(),
+        id: Math.floor(Math.random() * 9999999),
         ...account
       })
     },
